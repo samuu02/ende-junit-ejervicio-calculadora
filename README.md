@@ -23,7 +23,7 @@ El método sumarPositivosMal() está diseñado intencionadamente para que dé er
 
 Hay dos entradas (dividendo y divisor) y una salida (el resultado de la división).
    
-Clases equivalentes:
+Clases de equivalencia:
     Dividendo: son válidos todos los números.
     Divisor: son válidos todos los números menos el cero.
    
@@ -31,18 +31,18 @@ Valores límites: (depende de cada entrada):
     Dividendo (D1): 
       - Valor mínimo: -infinito
       - Valor máximo: +infinito
-      - Válidas: D1 < 0 | D1 > 0 | D1 = 0
+      - Valores válidos: D1 < 0 | D1 > 0 | D1 = 0
    
     Divisor (D2):
       - Valor mínimo: -infinito
-      - El cero no es válido.
+      - El cero no es válido. (valor intermedio)
       - Valor máximo: +infinito
-      - Válidas: D2 < 0 | D2 > 0
-      - No Válidas: D2 = 0 
+      - Valores válidos: D2 < 0 | D2 > 0
+      - Valores no válidos: D2 = 0 
    
 Conjetura de errores: se comprobará que cuando el divisor sea cero dará error.
 
-Casos de pruebas: (aplicando los limites para cubrir todos los casos)
+Casos de pruebas: (aplicando los valores limites para cubrir todos los casos)
     | Caso de Prueba | Dividendo | Divisor | Salida |
     | CP1 | 2 | 2 | 1 |  
     | CP2 | -4 | -2 | 2 | 
