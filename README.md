@@ -21,39 +21,69 @@ El método sumarPositivosMal() está diseñado intencionadamente para que dé er
 
 ## 3. Realiza un estudio de caja negra de la división e implementa las pruebas en junit: Se realizará en markdown.
 
-Hay dos entradas (dividendo y divisor) y una salida (el resultado de la división).
-   
-Clases de equivalencia:
-    Dividendo: son válidos todos los números.
-    Divisor: son válidos todos los números menos el cero.
-   
-Valores límites: (depende de cada entrada):
-    Dividendo (D1): 
-      - Valor mínimo: -infinito
-      - Valor máximo: +infinito
-      - Valores válidos: D1 < 0 | D1 > 0 | D1 = 0
-   
-    Divisor (D2):
-      - Valor mínimo: -infinito
-      - El cero no es válido. (valor intermedio)
-      - Valor máximo: +infinito
-      - Valores válidos: D2 < 0 | D2 > 0
-      - Valores no válidos: D2 = 0 
-   
-Conjetura de errores: se comprobará que cuando el divisor sea cero dará error.
+## División
 
-Casos de pruebas: (aplicando los valores limites para cubrir todos los casos)
-    | Caso de Prueba | Dividendo | Divisor | Salida |
-    | CP1 | 2 | 2 | 1 |  
-    | CP2 | -4 | -2 | 2 | 
-    | CP3 | 5 | -5 | -1 |
-    | CP4 | -10 | 5 | -2 |
-    | CP5 | 0 | 3 | 0 |
-    | CP6 | 0 | -1 | 0 |
-    | CP7 | 7 | 0 | ERROR |
-    | CP8 | -3 | 0 | ERROR |
-    | CP9 | 0 | 0 | ERROR |
+Hay dos entradas (**dividendo** y **divisor**) y una salida (el **resultado** de la división).
 
+---
+
+## Clases de equivalencia
+
+- **Dividendo:** son válidos todos los números.
+- **Divisor:** son válidos todos los números menos el cero.
+
+---
+
+## Valores límite (depende de cada entrada)
+
+### Dividendo (D1)
+
+- Valor mínimo: −∞  
+- Valor máximo: +∞  
+- Valores válidos:
+  - D1 < 0  
+  - D1 > 0  
+  - D1 = 0  
+
+### Divisor (D2)
+
+- Valor mínimo: −∞  
+- El cero no es válido (valor intermedio).  
+- Valor máximo: +∞  
+- Valores válidos:
+  - D2 < 0  
+  - D2 > 0  
+- Valores no válidos:
+  - D2 = 0  
+
+---
+
+## Conjetura de errores
+
+Se comprobará que cuando el divisor sea cero dará error.
+
+---
+
+## Casos de prueba  
+(Aplicando los valores límite para cubrir todos los casos)
+
+| Caso de Prueba | Dividendo | Divisor | Salida |
+|---------------|------------|----------|---------|
+| CP1 | 2  | 2  | 1 |
+| CP2 | -4 | -2 | 2 |
+| CP3 | 5  | -5 | -1 |
+| CP4 | -10 | 5 | -2 |
+| CP5 | 0 | 3 | 0 |
+| CP6 | 0 | -1 | 0 |
+| CP7 | 7 | 0 | ERROR |
+| CP8 | -3 | 0 | ERROR |
+| CP9 | 0 | 0 | ERROR |
+
+---
+
+## Implementación del test
+
+```java
 @Test
 public void dividirTest() {
 
@@ -62,12 +92,12 @@ public void dividirTest() {
     assertAll("Division",
 
         // Casos válidos
-        () -> assertEquals(1, calculadora.dividir(2, 2), "2 / 2 = 1"),          
-        () -> assertEquals(2, calculadora.dividir(-4, -2), "-4 / -2 = 2"),      
-        () -> assertEquals(-1, calculadora.dividir(5, -5), "5 / -5 = -1"),      
-        () -> assertEquals(-2, calculadora.dividir(-10, 5), "-10 / 5 = -2"),    
-        () -> assertEquals(0, calculadora.dividir(0, 3), "0 / 3 = 0"),         
-        () -> assertEquals(0, calculadora.dividir(0, -1), "0 / -1 = 0"),        
+        () -> assertEquals(1, calculadora.dividir(2, 2), "2 / 2 = 1"),
+        () -> assertEquals(2, calculadora.dividir(-4, -2), "-4 / -2 = 2"),
+        () -> assertEquals(-1, calculadora.dividir(5, -5), "5 / -5 = -1"),
+        () -> assertEquals(-2, calculadora.dividir(-10, 5), "-10 / 5 = -2"),
+        () -> assertEquals(0, calculadora.dividir(0, 3), "0 / 3 = 0"),
+        () -> assertEquals(0, calculadora.dividir(0, -1), "0 / -1 = 0"),
 
         // Casos no válidos (divisor = 0)
         () -> assertThrows(OperacionNoValidaException.class,
@@ -78,3 +108,4 @@ public void dividirTest() {
                 () -> calculadora.dividir(0, 0), "0 / 0 = ERROR")
     );
 }
+```
